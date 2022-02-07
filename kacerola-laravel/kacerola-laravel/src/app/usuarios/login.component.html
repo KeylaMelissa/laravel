@@ -1,0 +1,108 @@
+<div class="font-apercu">
+  <div class="banner">
+    <div class="col-4 bg-white p-4" style="border-radius: 10px;">
+      <div class="form-group w-100">
+        <div class="col-12">
+          <div class="navbar navbar-expand-md navbar-light bg-white pt-0 pr-0">
+            <div class="navbar-nav mx-auto">
+              <a (click) = "clickNavbar($event)" id="login" class="navbar-brand hover-ct mx-2" style="font-size: 18px;cursor: pointer; color: #505050;">Iniciar sesion</a>
+              <a (click) = "clickNavbar($event)" id="registro" class="navbar-brand hover-ct mx-2" style="font-size: 18px;cursor: pointer; color: #505050;">Crear Cuenta</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group w-100" *ngIf="opcion == 1">
+        <div class="col-12">
+          <div class="form-group w-100">
+            <div class="col-12 text-center">
+              <button class="btn pl-1" style="background-color: #3b5998;"><img src="assets/images/facebook-icon.png" height="25px" class="mr-3"><span class="text-white">Continuar con Facebook</span></button>
+            </div>
+          </div>
+          <div class="form-group w-100 mb-0">
+            <div class="col-12 text-center">
+              <label style="font-size: 18px; color: #505050;">Inicia Sesion con tu cuenta</label>
+            </div>
+          </div>
+          <div class="form-group w-100">
+            <div class="col-12 text-center">
+              <input type="text" class="form-control" placeholder="Correo">
+            </div>
+          </div>
+          <div class="form-group w-100">
+            <div class="col-12 text-center">
+              <input type="text" class="form-control" placeholder="Contraseña">
+            </div>
+          </div>
+          <div class="form-group w-100">
+            <div class="col-12 text-center">
+              <button class="btn btn-blue-kari text-dark" style="font-size: 12px; font-weight: bold; width: 150px; height: 40px;"
+              (click)="login()">INGRESAR</button>
+            </div>
+          </div>
+          <div class="form-group w-100">
+            <div class="col-12 text-center">
+              <a href="" style="color: #b9b9b9;">¿Olvidaste tu contraseña?</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group w-100" *ngIf="opcion == 2">
+        <div class="col-12">
+          <div class="form-group w-100">
+            <div class="col-12 text-center">
+              <label style="font-size: 18px; color: #8BC3CA;;">Registrese en La Kacerola de Kari</label>
+            </div>
+          </div>
+          <div class="form-group w-100">
+            <div class="col-12 text-center">
+              <input type="text" class="form-control" placeholder="Nombre y Apellido">
+            </div>
+          </div>
+          <div class="form-group w-100">
+            <div class="col-12 text-center">
+              <input type="text" class="form-control" placeholder="Email">
+            </div>
+          </div>
+          <div class="form-group w-100">
+            <div class="col-12 text-center">
+              <input type="text" class="form-control" placeholder="Nombre de Usuario">
+            </div>
+          </div>
+          <div class="form-group w-100">
+            <div class="col-12 text-center">
+              <input type="text" class="form-control" placeholder="Contraseña">
+            </div>
+          </div>
+          <div class="form-group w-100">
+            <div class="col-12 text-center">
+              <button class="btn btn-blue-kari text-white" style="font-size: 12px; font-weight: bold; width: 150px; height: 40px;">REGISTRARME</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="card text-center">
+  <div class="card-header">{{ titulo }}</div>
+  <div class="card-body">
+    <form method="post">
+      <div class="form-group row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+          <div class="form-group col-sm">
+            <input [(ngModel)]="usuario.username" type="text" class="form-control" name="username" id="username" placeholder="Usuario" autofocus required>
+          </div>
+          <div class="form-group col-sm">
+            <input [(ngModel)]="usuario.password" type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+          </div>
+          <div class="form-group col-sm">
+            <input (click)="login()" type="submit" class="btn btn-lg btn-success btn-block" value="Login">
+          </div>
+        </div>
+        <div class="col-sm-4"></div>
+      </div>
+    </form>
+  </div>
+</div> -->

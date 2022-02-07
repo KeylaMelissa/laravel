@@ -1,0 +1,12 @@
+.banner {
+  background: url("https://fotos.tevology.tk/fotos/kacerola/fotos_web/banner-about.jpg") no-repeat center;
+ -webkit-background-size: 100% 350px;
+ -moz-background-size: 100% 350px;
+ -o-background-size: 100% 350px;
+ background-size: 100% 350px;
+ height: 350px;
+ width: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}

@@ -1,0 +1,45 @@
+<div class="header-top">
+  <div class="container bg-white pt-1 font-apercu">
+    <div class="form-group row" *ngIf="empresa">
+      <div class="col-4 my-auto">
+        <div class="form-group row my-auto">
+          <img class="mx-2 my-auto" src="assets/images/pin.png" alt="pin" height="35">
+          <p class="my-auto" style="font-size: 12px; font-weight: bold;user-select: none;">{{empresa.distrito.nombre | titlecase}},<br>{{empresa.distrito.provincia.nombre | titlecase}} {{empresa.distrito.provincia.departamento.pais.nombre | titlecase}}</p>
+        </div>
+      </div>
+      <div class="col-4 text-center">
+        <img [src]="empresa.logo" alt="logo" height="120">
+      </div>
+      <div class="col-4 my-auto">
+          <button class="btn btn-outline-blue-kari text-dark float-right"
+            style="font-size: 12px; font-weight: bold; width: 150px; height: 40px;">WHATSAPP</button>
+      </div>
+    </div>
+    <hr class="my-0" style="height:2px;border:none;background-color:#CCCCCC;"/>
+    <div class="form-group row">
+      <div class="col-12">
+        <div class="navbar navbar-expand-md navbar-light bg-white pt-0 pr-0">
+          <div class="navbar-nav mx-auto">
+            <a (click) = "clickNavbar($event)" id = "inicio" class="navbar-brand hover-ct mx-2" routerLink="/" style="font-size: 12px; font-weight: bold;">INICIO</a>
+            <a (click) = "clickNavbar($event)" id = "about" class="navbar-brand hover-ct mx-2" routerLink="/about" style="font-size: 12px; font-weight: bold;">SOBRE NOSOTROS</a>
+            <a (click) = "clickNavbar($event)" id = "productos" class="navbar-brand hover-ct mx-2" routerLink="/listado-productos/0" style="font-size: 12px; font-weight: bold;">POSTRES</a>
+            <a (click) = "clickNavbar($event)" id = "blog" class="navbar-brand hover-ct mx-2" routerLink="/blog/0" style="font-size: 12px; font-weight: bold;">BLOG</a>
+            <a (click) = "clickNavbar($event)" id = "contacto" class="navbar-brand hover-ct mx-2" routerLink="/envio-mensaje" style="font-size: 12px; font-weight: bold;">CONTACTO</a>
+          </div>
+          <div class="navbar-nav">
+            <button type="button" class="btn btn-transparent">
+              <a routerLink="/ingreso">            
+                <img src="assets/images/search.png" height="20px">
+              </a>
+            </button>
+            <button type="button" class="btn btn-transparent">
+              <a routerLink="/compra">
+                <img src="assets/images/carrito.png" height="20px">
+              </a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

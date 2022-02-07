@@ -1,0 +1,196 @@
+<div class="container font-apercu" *ngIf="carroCompra">
+  <div class="form-group row w-100">
+    <div class="col-4">
+      <div class="form-group row mt-3 w-100">
+        <div class="col-12">
+          <p style="font-size: 24px; font-weight: bold;">Sus datos</p>
+        </div>
+      </div>
+      <div class="form-group row w-100">
+        <div class="col-6">
+          <p style="font-size: 12px;">{{carroCompra.nombre}} {{carroCompra.apellido}}</p>
+            <p style="font-size: 12px;">{{carroCompra.direccion}}</p>
+        </div>
+        <div class="col-6">
+          <button class="btn btn-outline-blue-kari text-dark" style="font-size: 12px;">EDITAR</button>
+        </div>
+      </div>
+      <div class="form-group row w-100 mb-1">
+        <div class="col-12">
+          <input type="text" class="form-control" placeholder="Nombre y Apellidos">
+        </div>
+      </div>
+      <div class="form-group row w-100 mb-1">
+        <div class="col-12">
+          <input type="text" class="form-control" placeholder="Telefono">
+        </div>
+      </div>
+      <div class="form-group row w-100 mb-1">
+        <div class="col-12">
+          <input type="text" class="form-control" placeholder="Correo electronico">
+        </div>
+      </div>
+      <div class="form-group row w-100 mb-1">
+        <div class="col-12">
+          <input type="text" class="form-control" placeholder="Direccion">
+        </div>
+      </div>
+      <div class="form-group row w-100 mb-1">
+        <div class="col-12">
+          <input type="text" class="form-control" placeholder="Distrito">
+        </div>
+      </div>
+      <div class="form-group row w-100 mb-1">
+        <div class="col-12">
+          <input type="text" class="form-control" placeholder="Provincia">
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="form-group row w-100">
+        <div class="col-12">
+          <p style="font-size: 18px;">Programa tu entrega</p>
+          <p style="font-size: 14px;">Los dias de reparto son todos los dias. El pedido debe realizarse antes de las 15:00</p>
+        </div>
+      </div>
+      <div class="form-group row w-100">
+        <div class="col-12">
+          <p style="font-size: 14px;">Fecha de entrega</p>
+          <input class="form-control border-top-0 border-left-0 border-right-0 col-8" type="date">
+        </div>
+      </div>
+      <div class="form-group row w-100">
+        <div class="col-12" *ngIf="horarios">
+          <p style="font-size: 14px;">Horarios</p>
+          <div *ngFor="let hor of horarios">
+            <label for="{{hor.id}}">
+              <input type="radio" id="{{hor.id}}" [value]="hor.id" [(ngModel)]="carroCompra.horario"/>
+              <span class="ml-2" style="font-size: 14px;">De {{hor.hora_inicio | date:'HH:mm'}} a {{hor.hora_fin | date:'HH:mm'}}</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-group row mt-3 w-100">
+        <div class="col-12">
+          <p style="font-size: 24px; font-weight: bold;">Metodo de Pago</p>
+        </div>
+      </div>
+      <div class="form-group row w-100">
+        <div class="col-12">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="forPag" id="fp1" value="option1" checked>
+            <label class="form-check-label" for="fp1" style="font-size: 14px;">
+              Tarjeta de credito o debito
+            </label>
+            <img src="assets/images/iconos-visa.png" alt="tarjetas">
+          </div>
+          <br>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="forPag" id="fp2" value="option2">
+            <label class="form-check-label" for="fp2" style="font-size: 14px;">
+              Tarjeta de credito o debito (deposito)
+            </label>
+          </div>
+          <p style="font-size: 13px;">Puede pagar mediante deposito en nuestra cuenta corriente del BBVA. Los datos apareceran luego de realizar el pago.</p>
+          <p style="font-size: 13px;">Documento</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="tipDoc" id="td1" value="option1">
+            <label class="form-check-label" for="td1" style="font-size: 14px;">
+              Boleta de pago
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="tipDoc" id="td2" value="option2">
+            <label class="form-check-label" for="td2" style="font-size: 14px;">
+              Factura
+            </label>
+          </div>
+          <br>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="forPag" id="fp3" value="option3">
+            <label class="form-check-label" for="fp3" style="font-size: 14px;">
+              Tarjeta de credito o debito contraentrega
+            </label>
+          </div>
+          <p style="font-size: 13px;">Puede pagar con tarjeta de credito o debito VISA al momento de recibir el pedido.</p>
+          <br>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="forPag" id="fp4" value="option4">
+            <label class="form-check-label" for="fp4" style="font-size: 14px;">
+              Pago en efectivo contraentrega
+            </label>
+          </div>
+          <p style="font-size: 13px;">Puede pagar con efectivo al momento de recibir el pedido. Indicar el monto con el que pagara</p>
+          <input class="col-4" type="text" placeholder="s/.">
+        </div>
+      </div>
+    </div>
+    <div class="col-4 border" *ngIf="carroCompra.detalle.length > 0">
+      <div class="form-group row mt-3 mb-0">
+        <div class="col-12 text-center">
+          <p style="font-size: 24px; font-weight: bold;">Su pedido</p>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-12 text-center">
+          <button class="btn btn-blue-kari text-white" style="font-size: 14px; width: 200px;height: 50px;">PAGAR AHORA</button>
+        </div>
+      </div>
+      <div class="form-group row" *ngFor="let det of carroCompra.detalle">
+        <div class="col-6">
+          <button type="button" class="close float-left" aria-label="Close" (click) = "quitarCarrito(det.nro)">
+            <span aria-hidden="true" style="color: #505050">&times;</span>
+          </button>
+          <img [src]="det.producto.foto" alt="producto" height="150px" width="100%">
+        </div>
+        <div class="col-6 text-right" style="font-size: 12px;">
+          <div class="form-group row mb-0">
+            <div class="col-12">
+              <p class="mb-0">{{det.producto.nombre}}</p>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-12">
+              <span>Cantidad: </span><input class="text-center" type="text" [(ngModel)]="det.cantidad" style="height: 30px; width: 30px;">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-12">
+              <span style="font-size: 16px;">Precio: <span class="text-blue-kari">s/{{det.precio_total | number:'1.2-2':'en'}}</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-12 text-right">
+          <p>Cupon de descuento</p>
+          <input class="form-control" type="text" disabled>
+          <br>
+          <button class="btn btn-blue-kari text-white" style="font-size: 14px; width: 150px;height: 40px;">APLICAR CUPON</button>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-12 text-right">
+          <p>Subtotal: s/.{{carroCompra.total | number:'1.2-2':'en'}}</p>
+          <p>Delivery: s/.{{precio_delivery | number:'1.2-2':'en'}}</p>
+          <hr>
+          <p style="color: #ecd3ad;">Total: s/.{{carroCompra.totalDelivery | number:'1.2-2':'en'}}</p>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-12 text-center">
+          <button class="btn btn-blue-kari text-white" style="font-size: 14px; width: 200px;height: 50px;">PAGAR AHORA</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 border" *ngIf="carroCompra.detalle.length === 0">
+      <div class="form-group row mt-3 mb-0">
+        <div class="col-12 text-center">
+          <p style="font-size: 24px; font-weight: bold;">No se ha agregado nada a su carrito aun</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

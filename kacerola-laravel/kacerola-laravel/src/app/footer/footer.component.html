@@ -1,0 +1,58 @@
+<footer class="footer">
+  <div class="container bg-white pt-1 font-apercu">
+    <div class="form-group row">
+      <div class="col-4">
+        <div class="form-group row mb-0">
+          <p class="mb-0" style="font-weight: bold;">INSTAGRAM</p>
+        </div>
+        <div class="form-group row mb-0">
+          <p style="font-weight: bold;">@LAKACEROLADEKARI</p>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-group row">
+          <ul style="list-style: none;">
+            <li style="font-weight: bold;">MEN&Uacute;</li>
+            <br>
+            <li><a routerLink="/" style="color: black; text-decoration: none; font-size: 12px; color: #4e4e4e;">INICIO</a></li>
+            <li><a routerLink="/" style="color: black; text-decoration: none; font-size: 12px; color: #4e4e4e;">SOBRE NOSOTROS</a></li>
+            <li><a routerLink="/" style="color: black; text-decoration: none; font-size: 12px; color: #4e4e4e;">BLOG</a></li>
+            <li><a routerLink="/" style="color: black; text-decoration: none; font-size: 12px; color: #4e4e4e;">TIPS Y CONSEJOS</a></li>
+            <li><a routerLink="/" style="color: black; text-decoration: none; font-size: 12px; color: #4e4e4e;">CONTACTO</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-4" *ngIf="empresa">
+        <div class="form-group row mb-0">
+          <p style="font-weight: bold;">CONTACTO</p>
+        </div>
+        <div class="form-group row">
+          <img class="ml-1 mr-3 my-auto" src="assets/images/pin.png" alt="pin" height="35">
+          <p class="my-auto" style="font-size: 12px; font-weight: bold;user-select: none;">{{empresa.distrito.nombre | titlecase}},<br>{{empresa.distrito.provincia.nombre | titlecase}} {{empresa.distrito.provincia.departamento.pais.nombre | titlecase}}</p>
+        </div>
+        <div class="form-group row">
+          <img class="ml-1 mr-2 my-auto" src="assets/images/phone.png" alt="telefono" height="30">
+          <p class="my-auto" style="font-size: 12px; font-weight: bold;user-select: none;">{{empresa.telefono}}</p>
+        </div>
+        <br>
+        <div class="form-group row">
+          <a class="mx-1" href="{{empresa.url_facebook}}" target="_blank">
+            <img src="assets/images/facebook-logo.png" height="35px">
+          </a>
+          <a class="mx-3" href="{{empresa.url_instagram}}" target="_blank">
+            <img src="assets/images/instagram-logo.png" height="35px">
+          </a>
+          <a class="mx-1" href="{{empresa.url_twitter}}" target="_blank">
+            <img src="assets/images/twitter-logo.png" height="35px">
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr class="mt-0 mb-2" style="height:2px;border:none;background-color:#CCCCCC;"/>
+    <div class="form-group row">
+      <div class="col-12 text-center">
+        &copy; Derechos Reservados La Kacerola de Kari
+      </div>
+    </div>
+  </div>
+</footer>

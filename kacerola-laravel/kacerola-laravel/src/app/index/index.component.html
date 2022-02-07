@@ -1,0 +1,180 @@
+<div class="p-1 font-apercu">
+  <div class="banner">
+    <div class="ml-5">
+      <img src="assets/images/texto-banner.png" alt="texto-banner">
+      <div class="ml-1 mb-0 form-group row" style="display: flex; align-items: center;">
+        <div style="border-top: 5px solid #8BC3CA; width: 40px; height: 20px; margin-right: 10px;"></div>
+        <p style="font-size: 35px; font-weight: bold; color: #fff">POSTRES DELIVERY</p>
+      </div>
+      <p style="font-size: 17px; color: #fff">
+      Todos nuestros postres son hechos con un<br>
+      ingrediente principal "el amor" que le<br>
+      ponemos a cada cosa que hacemos
+      </p>
+      <button class="btn btn-blue-kari text-white" style="font-size: 12px; font-weight: bold; width: 150px; height: 40px;">PEDIR AHORA</button>
+    </div>
+  </div>
+  <div class="segundo-banner">
+    <div class="text-center">
+      <div class="form-group row w-100">
+        <div class="col-12">
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <p style="font-size: 40px; font-weight: bold;">SOBRE <span class="text-blue-kari">LA KACEROLA DE KARI</span></p>
+        </div>
+      </div>
+      <div class="form-group row w-100">
+        <div class="col-3"></div>
+        <div class="col-6 px-0">
+          <p>La Kacerola de Kari es una manera de mostrar nuestra pasión por la cocina, es una oportunidad para dar a conocer nuestros conocimientos y experiencias en el mundo culinario, todo hecho con un ingrediente principal “el amor” que le ponemos a cada cosa que hacemos.</p>
+        </div>
+        <div class="col-3"></div>
+      </div>
+      <div class="form-group row w-100">
+        <div class="col-12">
+          <a routerLink="/about">
+            <img src="assets/images/arrow-button.png">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="form-group row w-100">
+      <div class="col-12 text-center">
+        <p style="font-size: 40px; font-weight: bold;">NUESTROS POSTRES</p>
+      </div>
+    </div>
+    <div class="form-group row w-100" *ngIf="listadoCategoriasProductoTop3">
+      <div class="col-1 my-auto">
+        <button class="btn btn-transparent" (click)="izquierdaCP()" [disabled] = "listaCatProd===1">
+          <img src="assets/images/arrow-left.png">
+        </button>
+      </div>
+      <div class="col-10">
+        <div class="card-deck">
+          <div class="card text-center" style="width: 18rem;" *ngFor="let catPro of listadoCategoriasProductoTop3">
+            <img [src]="catPro.foto_portada" class="card-img-top" alt="portada" height="200px" width="100%">
+            <div class="card-body">
+              <h5 class="card-title" style="font-size: 24px; font-weight: bold;">{{catPro.nombre}}</h5>
+              <p class="card-text" style="font-size: 16px; height: 100px;">{{catPro.descripcion}}</p>
+              <a href="#" >
+                <button class="btn btn-outline-blue-kari text-dark" style="font-size: 12px; font-weight: bold; width: 150px; height: 40px;">PEDIR AHORA</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-1 my-auto">
+        <button class="btn btn-transparent" (click)="derechaCP()" [disabled] = "listaCatProd+2===totalCatProd">
+          <img src="assets/images/arrow-right.png">
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="tercer-banner">
+    <div class="text-center">
+      <div class="form-group row w-100">
+        <div class="col-12">
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <img src="assets/images/texto-descubre.png" alt="texto-descubre">
+        </div>
+      </div>
+      <div class="form-group row w-100">
+        <div class="col-4"></div>
+        <div class="col-4">
+          <p style="font-size: 40px; font-weight: bold;">NUESTRAS MEJORES RECETAS</p>
+        </div>
+        <div class="col-4"></div>
+      </div>
+      <div class="form-group row w-100">
+        <div class="col-12">
+          <button class="btn btn-blue-kari text-white" style="font-size: 12px; font-weight: bold; width: 150px; height: 40px;">VER RECETAS</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="form-group row w-100">
+      <div class="col-12 text-center">
+        <p style="font-size: 40px; font-weight: bold;">NUESTRO BLOG</p>
+      </div>
+    </div>
+    <div class="form-group row w-100" *ngIf="listadoEntradasBlog">
+      <div class="col-6">
+        <div class="primera-entrada">
+          <div class="col-6">
+            <p style="font-size: 16px; color: #fff">{{listadoEntradasBlog[0].fecha_crea | date:'LLLL dd, yyyy' | titlecase}}</p>
+            <p style="font-size: 24px; font-weight: bold; color: #fff">{{listadoEntradasBlog[0].titulo}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group row w-100">
+          <div class="col-12">
+            <div class="form-group row w-100">
+              <div class="col-6">
+                <img [src]="listadoEntradasBlog[1].foto_lista" width="100%" height="134px;">
+              </div>
+              <div class="col-6 my-auto">
+                <p style="font-size: 12px;">{{listadoEntradasBlog[1].fecha_crea | date:'LLLL dd, yyyy' | titlecase}}</p>
+                <p style="font-size: 20px; font-weight: bold;">{{listadoEntradasBlog[1].titulo}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row w-100">
+          <div class="col-12">
+            <div class="form-group row w-100">
+              <div class="col-6">
+                <img [src]="listadoEntradasBlog[2].foto_lista" width="100%" height="134px;">
+              </div>
+              <div class="col-6 my-auto">
+                <p style="font-size: 12px;">{{listadoEntradasBlog[2].fecha_crea | date:'LLLL dd, yyyy' | titlecase}}</p>
+                <p style="font-size: 20px; font-weight: bold;">{{listadoEntradasBlog[2].titulo}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-secondary">
+    <div class="form-group row w-100">
+      <div class="col"></div>
+      <div class="col-5" *ngIf="mensaje">
+        <br>
+        <br>
+        <br>
+        <div class="text-center mb-2">
+          <p style="font-size: 40px; font-weight: bold;">¿TIENES ALGUNA DUDA?</p>
+        </div>
+        <div class="form-group row mb-5">
+          <input type="text" class="form-control mb-2" [(ngModel)]="mensaje.nombre" placeholder="Nombre">
+          <input type="text" class="form-control mb-2" [(ngModel)]="mensaje.correo" placeholder="Correo electronico">
+          <input type="text" class="form-control mb-2" [(ngModel)]="mensaje.telefono" placeholder="Telefono">
+          <input type="text" class="form-control mb-2" [(ngModel)]="mensaje.mensaje" placeholder="Mensaje">
+        </div>
+        <div class="text-center">
+          <button class="btn btn-blue-kari text-white" style="font-size: 12px; font-weight: bold; width: 150px; height: 40px;"
+            [disabled] = "mensaje.nombre === undefined || mensaje.correo === undefined || mensaje.telefono === undefined || mensaje.mensaje === undefined"
+            (click)="crearMensaje()">ENVIAR MENSAJE</button>
+        </div>
+        <br>
+        <br>
+      </div>
+      <div class="col"></div>
+    </div>
+  </div>
+</div>

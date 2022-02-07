@@ -1,0 +1,20 @@
+.banner {
+  /*background: url("C:/Users/ssaavedra/Documents/kacerola/fotos_web/login-fondo.jpg") no-repeat center;*/
+ -webkit-background-size: 100% 700px;
+ -moz-background-size: 100% 700px;
+ -o-background-size: 100% 700px;
+ background-size: 100% 700px;
+ height: 700px;
+ width: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.hover-ct {
+  border-bottom: 2px solid #FFF;
+}
+
+.hover-ct:hover, .hover-ct-selected {
+  border-bottom: 2px solid #8BC3CA;
+}

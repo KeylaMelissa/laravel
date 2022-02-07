@@ -1,0 +1,61 @@
+<div class="container font-apercu" *ngIf="producto">
+  <br>
+  <br>
+  <br>
+  <div class="form-group row w-100">
+    <div class="col-6">
+      <img [src]="producto.foto" width="100%" height="400px;">
+    </div>
+    <div class="col-6 my-auto">
+      <p class="mb-0" style="font-size: 40px; font-weight: bold;">{{producto.nombre}}</p>
+      <p style="font-size: 30px; font-weight: bold; color: #8bc3ca;">s/{{producto.precio | number:'1.2-2':'en'}}</p>
+      <p style="font-size: 18px; height: 100px;">{{producto.descripcion}}</p>
+      <div class="form-group row w-100">
+        <div class="col-3 pr-0">
+          <div class="form-group row w-100">
+            <div class="col-8 pr-1">
+              <input class="form-control" type="text" style="height: 50px;" [(ngModel)]="cantidad" (keypress)="soloNumeros($event)">
+            </div>
+            <div class="col-4">
+              <div class="row h-50">
+                <button class="btn btn-secondary p-0" style="width: 24px; height: 24px" (click) = "agregar()">+</button>
+              </div>
+              <div class="row h-50">
+                <button class="btn btn-secondary p-0" style="width: 24px; height: 24px;" (click) = "disminuir()">-</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 pl-0">
+          <button class="btn btn-blue-kari text-white" style="font-size: 14px; width: 200px;height: 50px;" (click) = "agregarCarrito()">COMPRAR AHORA</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="form-group row w-100">
+    <div class="col-12 text-center">
+      <p style="font-size: 24px; font-weight: bold;">PRODUCTOS RECOMENDADOS</p>
+    </div>
+  </div>
+  <div class="form-group row w-100">
+    <div class="col-12 text-center">
+      <div class="card-deck">
+        <div class="card text-center col-4 p-2 border-0" style="height: 350px;" *ngFor="let pro of productosRecomendados">
+          <div class="rounded" style="background-color: #f5f5f5; height: 100%;">
+            <img [src]="pro.foto" class="card-img-top" alt="portada" height="200px" width="100%">
+            <div class="card-body">
+              <a [routerLink]="['/detalle-producto',pro.id]" style="text-decoration: none;">
+                <h5 class="card-title" style="font-size: 16px; font-weight: bold; height: 30px; color: black;">{{pro.nombre | uppercase}}</h5>
+              </a>
+              <p class="card-text text-blue-kari" style="font-size: 20px; font-weight: bold;">s/{{pro.precio | number:'1.2-2':'en'}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

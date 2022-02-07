@@ -1,0 +1,7 @@
+.hover-ct {
+  border-top: 3px solid #FFF;
+}
+
+.hover-ct:hover, .hover-ct-selected {
+  border-top: 3px solid #8BC3CA;
+}

@@ -1,0 +1,68 @@
+<div class="container font-apercu">
+  <div class="form-group row w-100">
+    <div class="col-9">
+      <p style="font-size: 42px; font-weight: bold; color: black;">{{entradaBlog.titulo}}</p>
+    </div>
+  </div>
+  <div class="form-group row w-100">
+    <div class="col-9">
+      <div class="form-group row w-100">
+        <div class="col-12">
+          <img [src]="entradaBlog.foto_cuerpo" width="100%" height="400px;">
+        </div>
+      </div>
+      <div class="form-group row w-100">
+        <div class="col-12">
+          <p style="font-size: 18px; color: black;">{{entradaBlog.cuerpo}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-3 text-center">
+      <div class="card p-2 d-flex justify-content-center" style="height: 300px; margin: auto;" *ngIf="empresa">
+        <div class="rounded">
+          <img [src]="logo" alt="logo" width="120px !important">
+          <div class="card-body">
+            <h5 class="card-title" style="font-size: 18px; font-weight: bold; color: black;">{{empresa.nombre}}</h5>
+            <p class="card-text" style="font-size: 18px;">Profesional en reposteria</p>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="input-group w-100">
+        <input type="text" class="form-control border-right-0 border" placeholder="Buscar en el blog"
+          [(ngModel)]="busqueda">
+        <div class="input-group-append">
+          <button type="button" class="btn btn-outline-secondary border-left-0 border"
+              >
+            <img src="assets/images/search.png" height="20px;">
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="form-group row w-100">
+    <div class="col-12">
+      <p style="font-size: 36px; font-weight: bold; color: black;">ENTRADAS POPULARES</p>
+    </div>
+  </div>
+  <div class="form-group row w-100">
+    <div class="col-12 text-center">
+      <div class="card-deck">
+        <div class="card text-center col-4 p-2 border-0" style="height: 450px;" *ngFor="let pop of entradasPopulares">
+          <div class="rounded" style="background-color: #f5f5f5;">
+            <img [src]="pop.foto_lista" class="card-img-top" alt="portada" height="200px" width="100%">
+            <div class="card-body">
+              <h5 class="card-title" style="font-size: 12px; color: black;">{{pop.fecha_crea | date:'LLLL dd, yyyy' | titlecase}}</h5>
+              <a [routerLink]="['/entrada-blog',pop.id]" style="text-decoration: none;">
+                <h5 class="card-title" style="font-size: 16px; font-weight: bold; height: 30px; color: black;">{{pop.titulo}}</h5>
+              </a>
+              <p class="card-text" style="font-size: 14px;">{{pop.cuerpo}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

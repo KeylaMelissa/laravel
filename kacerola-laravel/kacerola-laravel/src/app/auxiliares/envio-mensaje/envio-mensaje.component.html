@@ -1,0 +1,29 @@
+<div class="font-apercu">
+  <div class="banner">
+    <div class="text-center">
+      <p style="font-size: 40px; font-weight: bold; color: #fff;">CONTACTO</p>
+    </div>
+  </div>
+  <div class="form-group row w-100 mt-5">
+    <div class="col"></div>
+    <div class="col-5" *ngIf="mensaje">
+      <div class="text-center mb-2">
+        <p style="font-size: 40px; font-weight: bold;">Dejanos un mensaje</p>
+      </div>
+      <div class="form-group row w-100 mb-5">
+        <input type="text" class="form-control mb-2" [(ngModel)]="mensaje.nombre" placeholder="Nombre">
+        <input type="text" class="form-control mb-2" [(ngModel)]="mensaje.correo" placeholder="Correo electronico">
+        <input type="text" class="form-control mb-2" [(ngModel)]="mensaje.telefono" placeholder="Telefono">
+        <input type="text" class="form-control mb-2" [(ngModel)]="mensaje.mensaje" placeholder="Mensaje">
+      </div>
+      <div class="text-center">
+        <button class="btn btn-blue-kari text-white" style="font-size: 12px; font-weight: bold; width: 150px; height: 40px;"
+          [disabled] = "mensaje.nombre === undefined || mensaje.correo === undefined || mensaje.telefono === undefined || mensaje.mensaje === undefined"
+          (click)="crear()">ENVIAR MENSAJE</button>
+      </div>
+      <br>
+      <br>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>

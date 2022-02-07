@@ -1,0 +1,102 @@
+<div class="container font-apercu">
+  <div class="form-group row w-100">
+    <div class="col-3">
+      <div class="form-group row w-100">
+        <div class="col-12">
+          <p style="font-size: 15px; font-weight: bold;">FILTRO POR PRECIO</p>
+        </div>
+      </div>
+      <div class="form-group row w-100">
+        <div class="col-12">
+          <div class="custom-slider">
+            <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-4">
+          <button class="btn btn-blue-kari text-white mr-2" (click)="filtrar()">FILTRO</button>
+        </div>
+        <div class="col" style="margin-top: 10px;">
+          <p style="font-size: 14px;">PRECIO:&nbsp;s/{{minValue}}&nbsp;-&nbsp;s/{{maxValue}}</p>
+        </div>
+      </div>
+      <div class="form-group row w-100">
+        <div class="col-12">
+          <p style="font-size: 15px; font-weight: bold;">CATEGORIAS</p>
+          <hr class="my-1" style="height:1px;border:none;background-color:black;"/>
+        </div>
+      </div>
+      <div class="form-group row w-100">
+        <div class="col-12">
+          <label *ngFor="let cat of categoriasLista" style="display:block">
+            <input type="checkbox" [value]="cat.id" (change) = "editarCategorias($event)" checked />
+            <span class="ml-2" style="font-size: 15px; font-weight: bold;">{{cat.nombre | titlecase}}</span>
+          </label>
+        </div>
+      </div>
+      <div class="form-group row w-100">
+        <div class="col-12">
+          <br>
+          <div class="input-group">
+            <input type="text" class="form-control border-right-0 border" placeholder="Buscar en la tienda"
+              [(ngModel)]="nombreFiltro">
+            <div class="input-group-append">
+              <button type="button" class="btn btn-outline-secondary border-left-0 border"
+                  (click)="filtrar()">
+                <img src="assets/images/search.png" height="20px;">
+              </button>
+            </div>
+          </div>
+          <br>
+        </div>
+      </div>
+      <div class="form-group row w-100">
+        <div class="col-12">
+          <p style="font-size: 15px; font-weight: bold;">PRODUCTOS POPULARES</p>
+          <hr class="my-1" style="height:1px;border:none;background-color:black;"/>
+        </div>
+      </div>
+      <div class="form-group row w-100">
+        <div class="col-12">
+          <table class="w-100" *ngIf="productosPopulares">
+            <tbody>
+              <tr *ngFor="let pr of productosPopulares">
+                <td>
+                  <img class="mx-2" [src]="pr.foto" alt="foto" height="60px" width="60px">
+                </td>
+                <td>
+                  <a [routerLink]="['/detalle-producto',pr.id]" style="text-decoration: none;">
+                    <span style="font-size: 12px; font-weight: bold; color: black;">{{pr.nombre}}<br>
+                      <span class="text-blue-kari">s/{{pr.precio | number:'1.2-2':'en'}}</span>
+                    </span>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="form-group row w-100" style="min-height: 1000px;">
+        <div class="card text-center col-4 p-2 border-0" style="height: 350px;" *ngFor="let pro of productos">
+          <div class="rounded" style="background-color: #f5f5f5; height: 100%;">
+            <img [src]="pro.foto" class="card-img-top" alt="portada" height="200px" width="100%">
+            <div class="card-body">
+              <a [routerLink]="['/detalle-producto',pro.id]" style="text-decoration: none;">
+                <h5 class="card-title" style="font-size: 16px; font-weight: bold; height: 30px; color: black;">{{pro.nombre | uppercase}}</h5>
+              </a>
+              <p class="card-text text-blue-kari" style="font-size: 20px; font-weight: bold;">s/{{pro.precio | number:'1.2-2':'en'}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row w-100">
+        <div class="col-12">
+          <paginator-nav *ngIf="paginador" [paginador] = "paginador" [enlacePaginador]="enlacePaginador"></paginator-nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

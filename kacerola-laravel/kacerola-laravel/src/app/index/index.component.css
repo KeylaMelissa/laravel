@@ -1,0 +1,43 @@
+.banner {
+  background: url("https://fotos.tevology.tk/fotos/kacerola/fotos_web/banner.jpg") no-repeat center;
+ -webkit-background-size: 100% 700px;
+ -moz-background-size: 100% 700px;
+ -o-background-size: 100% 700px;
+ background-size: 100% 700px;
+ height: 700px;
+ width: 100%;
+ display: flex;
+ align-items: center;
+}
+
+.segundo-banner {
+  background: url("https://fotos.tevology.tk/fotos/kacerola/fotos_web/segundo-banner.jpg") no-repeat center;
+ -webkit-background-size: 100% 600px;
+ -moz-background-size: 100% 600px;
+ -o-background-size: 100% 600px;
+ background-size: 100% 600px;
+ height: 600px;
+ width: 100%;
+}
+
+.tercer-banner {
+  background: url("https://fotos.tevology.tk/fotos/kacerola/fotos_web/tercer-banner.jpg") no-repeat center;
+ -webkit-background-size: 100% 700px;
+ -moz-background-size: 100% 700px;
+ -o-background-size: 100% 700px;
+ background-size: 100% 700px;
+ height: 700px;
+ width: 100%;
+}
+
+.primera-entrada {
+  background: url("https://fotos.tevology.tk/fotos/kacerola/entradas_blog/entrada-1.jpg") no-repeat center;
+ -webkit-background-size: 100% 300px;
+ -moz-background-size: 100% 300px;
+ -o-background-size: 100% 300px;
+ background-size: 100% 300px;
+ height: 300px;
+ width: 100%;
+ display: flex;
+ align-items: flex-end;
+}
